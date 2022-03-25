@@ -1,19 +1,31 @@
-<a href="/">
-    <h1>SOMO</h1>
-</a>
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
-<form method="GET" action="{% url 'home'%}">
-    <label>
-        Search:
-        <input type="text" name="q" placeholder="Search for Rooms ....."/>
-    </label>
-</form>
+<div class="navbar">
+    <a href="/">
+        <h1>SOMO</h1>
+    </a>
 
-{% if request.user.is_authenticated %}
-    <p>Hello {{ request.user }}</p>
-    <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-    <a href="{% url 'login'%}">Login</a>
-{% endif %}
 
-<hr>
+        <form method="GET" action="{% url 'home'%}">
+            <label>
+                Search:
+                <input type="text" name="q" placeholder="Search for Rooms ....."/>
+            </label>
+        </form>
+
+
+    {% if request.user.is_authenticated %}
+        <p>Hello {{ request.user }}</p>
+        <p>
+            <a href="{% url 'logout' %}">Logout</a>
+        </p>
+
+        {% else %}
+        <a href="{% url 'login'%}">Login</a>
+    {% endif %}
+
+    <hr>
+
+</div>
