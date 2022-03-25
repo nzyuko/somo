@@ -1,13 +1,14 @@
 {% extends 'main.html' %}
 {% load bootstrap5%}
-{}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 {% block content %}
 
 <div>
     <form method="POST" action="">
         {% csrf_token %}
         {% bootstrap_form form %}
-        {{form.as_p}}
+
 
         {% buttons %}
             <input type="Submit" value="Submit" class="btn btn-primary"/>
