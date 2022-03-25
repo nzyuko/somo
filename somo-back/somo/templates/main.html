@@ -10,19 +10,23 @@
     <title class="">Somo</title>
   </head>
   <body>
-    {% include 'navbar.html' %}
 
-    {% if messages %}
+    <div class="container-fluid">
+            {% include 'navbar.html' %}
 
-        <ul class="messages">
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+        {% if messages %}
 
-    {% block content %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-    {% endblock %}
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
   </body>
 </html>
