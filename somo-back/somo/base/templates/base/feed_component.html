@@ -7,7 +7,7 @@
 
 
     {% for room in rooms %}
-        <div class="container p-4 m-4 border-success" style="border:1px solid #cecece">
+        <div class="container p-4 m-4 border-success justify-content-center" style="border:1px solid #cecece">
             {% if request.user == room.host %}
                 <a href="{% url 'update-room' room.id %}">Edit</a>
                 <a href="{% url 'delete-room' room.id %}">Delete</a>
