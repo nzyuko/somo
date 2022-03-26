@@ -1,10 +1,10 @@
-<h3>Browse Topics</h3>
-<hr>
-<div>
-    <a href="{% url 'home'%}">All</a>
-</div>
-{% for topic in topics %}
+<div class="justify-content-center">
     <div>
-        <a href="{% url 'home'%}?q={{ topic.name }}">{{ topic.name }}</a>
+        <a href="{% url 'home'%}">All</a>
     </div>
-{% endfor %}
+    {% for topic in topics %}
+        <div class="container border p-4 m-4">
+            <p><a href="{% url 'home'%}?q={{ topic.name }}">{{ topic.name }}</a></p>
+        </div>
+    {% endfor %}
+</div>
