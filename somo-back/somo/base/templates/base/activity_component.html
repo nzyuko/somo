@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container overflow-hidden container p-4 m-4 border border-success">
         <h3>Recent Activity</h3>
-    <hr>
+
     {% for message in room_messages %}
-        <div class="container">
+        <div class="container border p-4 m-4">
             <small><a href="{% url 'user-profile' message.user.id %}">@{{ message.user }}</a>{{ message.created|timesince }}</small>
             <small>replied to "{{ message.room }}"</small>
 

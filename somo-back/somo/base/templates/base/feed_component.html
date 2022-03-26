@@ -1,6 +1,13 @@
-<div>
+<div class="container">
+<div class="d-flex justify-content-center">
+    <h5>{{ room_count }} rooms available</h5>
+    <a href="{% url 'create-room' %}">Create Room</a>
+    <br>
+</div>
+
+
     {% for room in rooms %}
-        <div class="container">
+        <div class="container p-4 m-4 border-success" style="border:1px solid #cecece">
             {% if request.user == room.host %}
                 <a href="{% url 'update-room' room.id %}">Edit</a>
                 <a href="{% url 'delete-room' room.id %}">Delete</a>
