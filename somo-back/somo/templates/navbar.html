@@ -4,10 +4,9 @@
 
 <div class="container- fluid">
     <div class="navbar">
-    <a href="/">
-        <h1>SOMO</h1>
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="../static/images/SOMO-logos.jpeg" alt="" width="240" height="120">
     </a>
-
 
         <form method="GET" action="{% url 'home'%}">
             <label>

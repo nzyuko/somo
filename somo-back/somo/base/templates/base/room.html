@@ -1,4 +1,7 @@
 {% extends 'main.html' %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
 {% block content %}
 
@@ -9,13 +12,13 @@
             }
     </style>
 
-    <div class="room-container">
+    <div class="room-container container">
         <div>
                 <h1>{{ room.name }}</h1>
 
             <p>{{ room.description }}</p>
 
-            <div class="comment-wrapper">
+            <div class="comment-wrapper container">
                 <h3>Conversation</h3>
                 <hr>
 
@@ -33,18 +36,25 @@
                 {% endfor %}
             </div>
             {% if request.user.is_authenticated %}
-                <div class="comment-form">
+                <div class="comment-form container">
                     <form method="POST" action="">
                         <label>
                             Enter your message:
                             {% csrf_token %}
+                            {% for field in form %}
+                                {% bootstrap_field field %}
+                            {% endfor %}
+
                             <input type="text" name="body" placeholder="Write your message here ...">
+                            {% buttons %}
+                                <input type="Submit" value="Send" class="btn btn-primary"/>
+                            {% endbuttons %}
                         </label>
                     </form>
                 </div>
             {% endif %}
         </div>
-        <div>
+        <div class="container">
             <h3>Participants</h3>
             {% for user in participants %}
                 <p>@{{ user.username }}</p>
